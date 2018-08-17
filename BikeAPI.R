@@ -51,7 +51,7 @@ DowntownMap <- ggmap(get_map(location = "Washington, DC", zoom = 14, maptype = "
       mutate(company = as.character(dfname))
     
   #Vehicle Type
-    #Now deal with the rest of the company's types
+    #If else statement to separate lime's bikes & scooters from the rest of companies
     if("attributes.vehicle_type" %in% colnames(df)){
       df <- 
         df %>% 
@@ -98,9 +98,9 @@ DowntownMap <- ggmap(get_map(location = "Washington, DC", zoom = 14, maptype = "
       mutate(lat = as.numeric(lat),
              long = as.numeric(long)) %>% 
       filter(lat > 37 & lat < 39, 
-             long > -78 & long < -76)
+             long > -78 & long < -76) #Skip reports data nationally
              
-  #Selecting Fields
+  #Selecting fields we want
     df <- 
       df %>% 
       select(company, vehicletype, bikeID, lat, long)
@@ -121,13 +121,15 @@ DowntownMap <- ggmap(get_map(location = "Washington, DC", zoom = 14, maptype = "
     bird <- cleanFields(bikeData(birdurl, "data", NA))
     lime <- cleanFields(bikeData(limeurl, "data", "Bearer limebike-PMc3qGEtAAXqJa"))
   
-  currentData <- rbind(skip, jump, spin, bird, lime)
+  #Compile into one data frame  
+    currentData <- rbind(skip, jump, spin, bird, lime)
   
-  currentData$time <- now()
+  #Timestamp new data and add it to data frame
+    currentData$time <- now()
   
-  allData <- rbind(allData, currentData)
+    allData <- rbind(allData, currentData)
   
-  return(allData)
+    return(allData)
   }
 
 
