@@ -80,17 +80,12 @@ DowntownMap <- ggmap(get_map(location = "Washington, DC", zoom = 14, maptype = "
       df %>% 
       rename(bikeID = name_ID)
   
-  #Longtitude
+  #Longtitude & Latitude
     name_long <- 
       df %>% 
       select(matches("lon|lng")) %>% 
       names()
-    
-    df <- 
-      df %>% 
-      rename(long = name_long)
-    
-  #Latitide
+
     name_lat <- 
       df %>% 
       select(matches("lat|latitude")) %>% 
@@ -98,7 +93,8 @@ DowntownMap <- ggmap(get_map(location = "Washington, DC", zoom = 14, maptype = "
     
     df <- 
       df %>% 
-      rename(lat = name_lat) %>% 
+      rename(lat = name_lat,
+             long = name_long) %>% 
       mutate(lat = as.numeric(lat),
              long = as.numeric(long)) %>% 
       filter(lat > 37 & lat < 39, 
