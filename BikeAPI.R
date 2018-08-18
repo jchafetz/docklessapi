@@ -95,8 +95,7 @@ DowntownMap <- ggmap(get_map(location = "Washington, DC", zoom = 14, maptype = "
       df %>% 
       rename(lat = name_lat,
              long = name_long) %>% 
-      mutate(lat = as.numeric(lat),
-             long = as.numeric(long)) %>% 
+      mutate_at(var(lat, long), ~ as.numeric(.)) %>% 
       filter(lat > 37 & lat < 39, 
              long > -78 & long < -76) #Skip reports data nationally
              
