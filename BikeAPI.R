@@ -90,7 +90,7 @@ DowntownMap <- ggmap(get_map(location = "Washington, DC", zoom = 14, maptype = "
       df %>% 
       select(matches("lat|latitude")) %>% 
       names()
-    
+#comment    
     df <- 
       df %>% 
       rename(lat = name_lat,
