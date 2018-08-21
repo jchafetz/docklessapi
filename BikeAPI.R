@@ -28,11 +28,12 @@ DowntownMap <- ggmap(get_map(location = "Washington, DC", zoom = 14, maptype = "
   bikeData <- function(url, layer, auth){
   
   #Pull the JSON
+    suppressMessages(
     json <- url %>%
             httr::GET(httr::timeout(60), add_headers(Authorization = paste(auth))) %>% 
             httr::content("text") %>% 
             jsonlite::fromJSON(flatten = TRUE) 
-    
+    )
   #extract key elements
     df <- purrr::pluck(json, layer) %>%
           as.data.frame()
@@ -95,8 +96,7 @@ DowntownMap <- ggmap(get_map(location = "Washington, DC", zoom = 14, maptype = "
       df %>% 
       rename(lat = name_lat,
              long = name_long) %>% 
-      mutate(lat = as.numeric(lat),
-             long = as.numeric(long)) %>% 
+      mutate_at(var(lat, long), ~ as.numeric(.)) %>% 
       filter(lat > 37 & lat < 39, 
              long > -78 & long < -76) #Skip reports data nationally
              
