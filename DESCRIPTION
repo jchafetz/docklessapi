@@ -13,6 +13,14 @@ Authors@R: c(
            )
 Description: API Pull of Avaialble Dockless Bikes in Washington, DC
 License: MIT + file LICENSE
+Imports:  dplyr, 
+          httr, 
+          jsonlite,
+          lubridate,
+          rjson, 
+          RJSONIO
+Suggests: gdata, 
+          ggmap
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.0
