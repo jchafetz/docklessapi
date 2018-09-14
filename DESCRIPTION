@@ -17,7 +17,8 @@ Imports:  dplyr,
           httr, 
           jsonlite,
           lubridate,
-          purrr 
+          purrr,
+          tibble
 Suggests: gdata, 
           ggmap,
           rjson,
