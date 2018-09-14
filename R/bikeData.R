@@ -1,8 +1,8 @@
 #' Function to pull data from the API
 #'
 #' @param url api url
-#' @param layer list layer, eg data
-#' @param auth if authorization is requireed
+#' @param layer list layer, default = "data"
+#' @param auth if authorization is required, default = NA
 #'
 #' @export
 #' @importFrom dplyr %>%
@@ -10,7 +10,7 @@
 #' @examples
 
 
-bikeData <- function(url, layer, auth){
+bikeData <- function(url, layer = "data", auth = NA){
 
     #Pull the JSON
     json <- url %>%
