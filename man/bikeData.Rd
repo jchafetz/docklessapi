@@ -4,14 +4,14 @@
 \alias{bikeData}
 \title{Function to pull data from the API}
 \usage{
-bikeData(url, layer, auth)
+bikeData(url, layer = "data", auth = NA)
 }
 \arguments{
 \item{url}{api url}
 
-\item{layer}{list layer, eg data}
+\item{layer}{list layer, default = "data"}
 
-\item{auth}{if authorization is requireed}
+\item{auth}{if authorization is required, default = NA}
 }
 \description{
 Function to pull data from the API
