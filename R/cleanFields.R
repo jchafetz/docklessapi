@@ -1,4 +1,13 @@
-#Function to clean up the data frames so that they can be combined
+#' Function to clean up the data frames so that they can be combined
+#'
+#' @param df
+#'
+#' @return
+#' @export
+#'
+#' @examples
+
+
 cleanFields <- function(df){
     #Company Name
     dfname <- deparse(substitute(df))
