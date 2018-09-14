@@ -33,7 +33,6 @@ getDocklessdata <- function(output_filepath){
     time <- format(lubridate::now(), "%Y%m%d_%H%M%S_")
 
     #export
-    write.csv(df, file.path(output_filepath, paste0(time, "docklessbike_data_set.csv")), row.names = FALSE)
+    readr::write_csv(df, file.path(output_filepath, paste0(time, "docklessbike_data_set.csv")), na = "FALSE")
 
-    return(df)
 }
