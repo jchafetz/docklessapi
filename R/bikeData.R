@@ -27,6 +27,11 @@ bikeData <- function(company, url, layer = "data", auth = NA){
     df <- purrr::pluck(json, layer) %>%
         as.data.frame()
 
+    #add company name
+    df <- df %>%
+        dplyr::mutate(company = company) %>%
+        dplyr::select(company, dplyr::everything())
+
     #Return dataframe
     return(df)
 }

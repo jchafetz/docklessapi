@@ -9,12 +9,6 @@
 
 
 cleanFields <- function(df){
-    #Company Name
-    dfname <- deparse(substitute(df))
-
-    df <-
-        df %>%
-        dplyr::mutate(company = as.character(dfname))
 
     #Vehicle Type
     #If else statement to separate lime's bikes & scooters from the rest of companies
