@@ -1,4 +1,13 @@
-#Function to pull data from the API
+#' Function to pull data from the API
+#'
+#' @param url api url
+#' @param layer list layer, eg data
+#' @param auth if authorization is requireed
+#'
+#' @return
+#' @export
+#'
+#' @examples
 bikeData <- function(url, layer, auth){
 
     #Pull the JSON
