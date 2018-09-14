@@ -1,6 +1,6 @@
 Package: docklessapi
 Title: Dockless API
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: c(
     person(given = "Jordan",
            family = "Chafetz",
@@ -18,7 +18,8 @@ Imports:  dplyr,
           jsonlite,
           lubridate,
           purrr,
-          tibble
+          tibble,
+          readr
 Suggests: gdata, 
           ggmap,
           rjson,
