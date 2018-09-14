@@ -1,9 +1,9 @@
 #' Function to clean up the data frames so that they can be combined
 #'
-#' @param df
+#' @param df dataframe to clean up
 #'
-#' @return
 #' @export
+#' @importFrom dplyr %>%
 #'
 #' @examples
 
