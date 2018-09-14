@@ -27,10 +27,10 @@ getDocklessdata <- function(output_filepath){
                           .f = ~ bikeData(.x, .y) %>% cleanFields())
 
     #Timestamp new data and add it to data frame
-    df$time <- now()
+    df$time <- lubridate::now()
 
     #Time stamp and export
-    time <- format(now(), "%Y%m%d_%H%M%S_")
+    time <- format(lubridate::now(), "%Y%m%d_%H%M%S_")
 
     #export
     write.csv(df, file.path(output_filepath, paste0(time, "data_set.csv")))
