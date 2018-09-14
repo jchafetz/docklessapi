@@ -14,7 +14,7 @@ bikeData <- function(url, layer, auth){
 
     #Pull the JSON
     json <- url %>%
-        httr::GET(httr::timeout(60), add_headers(Authorization = paste(auth))) %>%
+        httr::GET(httr::timeout(60), httr::add_headers(Authorization = paste(auth))) %>%
         httr::content("text") %>%
         jsonlite::fromJSON(flatten = TRUE)
 
