@@ -13,21 +13,9 @@ getDocklessdata <- function(){
         )
 
     #Pull the data
-    skip <- bikeData(skipurl, "bikes", NA)
-    jump <- bikeData(jumpurl, "data", NA)
-    spin <- bikeData(spinurl, "data", NA)
-    bird <- bikeData(birdurl, "data", NA)
-    lime <- bikeData(limeurl, "data", "Bearer limebike-PMc3qGEtAAXqJa")
-
-    #Clean the data
-    skip <- cleanFields(skip)
-    jump <- cleanFields(jump)
-    spin <- cleanFields(spin)
-    bird <- cleanFields(bird)
-    lime <- cleanFields(lime)
-
-    #Compile into one data frame
-    currentData <- rbind(skip, jump, spin, bird, lime)
+    currentData <- purrr::map2_dfr(.x = dockless_urls$company,
+                                   .y = dockless_urls$url,
+                                   .f = ~ bikeData(.x, .y) %>% cleanFields())
 
     #Timestamp new data and add it to data frame
     currentData$time <- now()
