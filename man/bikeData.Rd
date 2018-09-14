@@ -4,9 +4,11 @@
 \alias{bikeData}
 \title{Function to pull data from the API}
 \usage{
-bikeData(url, layer = "data", auth = NA)
+bikeData(company, url, layer = "data", auth = NA)
 }
 \arguments{
+\item{company}{dockless bike company, eg "spin"}
+
 \item{url}{api url}
 
 \item{layer}{list layer, default = "data"}

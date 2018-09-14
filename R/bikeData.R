@@ -1,5 +1,6 @@
 #' Function to pull data from the API
 #'
+#' @param company dockless bike company, eg "spin"
 #' @param url api url
 #' @param layer list layer, default = "data"
 #' @param auth if authorization is required, default = NA
@@ -10,7 +11,11 @@
 #' @examples
 
 
-bikeData <- function(url, layer = "data", auth = NA){
+bikeData <- function(company, url, layer = "data", auth = NA){
+
+    #Adjustments to make it easier to work with use with purr::map()
+    if(company == "skip") layer <- "bikes"
+    if(company == "lime") auth  <- "Bearer limebike-PMc3qGEtAAXqJa"
 
     #Pull the JSON
     json <- url %>%
