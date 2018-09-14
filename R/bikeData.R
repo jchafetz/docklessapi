@@ -18,11 +18,12 @@ bikeData <- function(company, url, layer = "data", auth = NA){
     if(company == "lime") auth  <- "Bearer limebike-PMc3qGEtAAXqJa"
 
     #Pull the JSON
+    suppressMessages(
     json <- url %>%
         httr::GET(httr::timeout(60), httr::add_headers(Authorization = paste(auth))) %>%
         httr::content("text") %>%
         jsonlite::fromJSON(flatten = TRUE)
-
+    )
     #extract key elements
     df <- purrr::pluck(json, layer) %>%
         as.data.frame()
