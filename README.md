@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/achafetz/docklessapi.svg?branch=master)](https://travis-ci.org/achafetz/docklessapi)
+
 # Dockless API
 Aggregating dockless bike share data in Washington, DC
 
