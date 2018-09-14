@@ -1,5 +1,5 @@
 #Putting together the data
-getDocklessdata <- function(){
+getDocklessdata <- function(output_filepath){
 
     #Set the urls
     dockless_urls <-
@@ -13,12 +13,18 @@ getDocklessdata <- function(){
         )
 
     #Pull the data
-    currentData <- purrr::map2_dfr(.x = dockless_urls$company,
-                                   .y = dockless_urls$url,
-                                   .f = ~ bikeData(.x, .y) %>% cleanFields())
+    df <- purrr::map2_dfr(.x = dockless_urls$company,
+                          .y = dockless_urls$url,
+                          .f = ~ bikeData(.x, .y) %>% cleanFields())
 
     #Timestamp new data and add it to data frame
-    currentData$time <- now()
+    df$time <- now()
+
+    #Time stamp and export
+    time <- format(now(), "%Y%m%d_%H%M%S_")
+
+    #export
+    write.csv(df, file.path(output_filepath, paste0(time, "data_set.csv")))
 
     return(currentData)
 }
