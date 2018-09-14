@@ -12,7 +12,7 @@ Authors@R: c(
            email = "achafetz@usaid.gov")
            )
 Description: API Pull of Avaialble Dockless Bikes in Washington, DC
-License: What license it uses
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.0
