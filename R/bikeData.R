@@ -5,6 +5,7 @@
 #' @param auth if authorization is requireed
 #'
 #' @export
+#' @importFrom dplyr %>%
 #'
 #' @examples
 bikeData <- function(url, layer, auth){
