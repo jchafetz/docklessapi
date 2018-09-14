@@ -4,7 +4,6 @@
 #' @param layer list layer, eg data
 #' @param auth if authorization is requireed
 #'
-#' @return
 #' @export
 #'
 #' @examples
