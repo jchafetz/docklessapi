@@ -22,8 +22,7 @@ cleanFields <- function(df){
         df <-
             df %>%
             dplyr::rename(vehicletype = attributes.vehicle_type)
-    }
-    else{
+    } else{
         df <-
             df %>%
             dplyr::mutate(
