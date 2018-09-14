@@ -4,10 +4,10 @@
 \alias{getDocklessdata}
 \title{Pull, clean, and save dockless API data}
 \usage{
-getDocklessdata(output_filepath)
+getDocklessdata(output_filepath = NULL)
 }
 \arguments{
-\item{output_filepath}{folder directory where you want the file to save to}
+\item{output_filepath}{folder directory where you want the file to save to; if NULL, will just be stored in R}
 }
 \description{
 Pull, clean, and save dockless API data

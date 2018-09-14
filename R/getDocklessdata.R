@@ -1,6 +1,6 @@
 #' Pull, clean, and save dockless API data
 #'
-#' @param output_filepath folder directory where you want the file to save to
+#' @param output_filepath folder directory where you want the file to save to; if NULL, will just be stored in R
 #'
 #' @export
 #' @importFrom dplyr %>%
@@ -8,7 +8,7 @@
 #' @examples
 
 
-getDocklessdata <- function(output_filepath){
+getDocklessdata <- function(output_filepath = NULL){
 
     #Set the urls
     dockless_urls <-
@@ -29,10 +29,11 @@ getDocklessdata <- function(output_filepath){
     #Timestamp new data and add it to data frame
     df$time <- lubridate::now()
 
-    #Time stamp and export
-    time <- format(lubridate::now(), "%Y%m%d_%H%M%S_")
-
-    #export
-    readr::write_csv(df, file.path(output_filepath, paste0(time, "docklessbike_data_set.csv")), na = "FALSE")
-
+    if(!is.null(output_filepath)){
+        #Time stamp and export
+        time <- format(lubridate::now(), "%Y%m%d_%H%M%S_")
+        readr::write_csv(df, file.path(output_filepath, paste0(time, "docklessbike_data_set.csv")), na = "FALSE")
+    } else {
+        return(df)
+    }
 }
