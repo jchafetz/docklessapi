@@ -28,4 +28,11 @@ library(docklessapi)
   getDocklessdata("~/Documents/BikeData")
 ```
 
+### Data Viz created off the data
+
+![910911map2](https://user-images.githubusercontent.com/8933069/45558890-fc7e7900-b80e-11e8-902a-b15c07fbc557.gif)
+
+![910911graph2](https://user-images.githubusercontent.com/8933069/45558895-ff796980-b80e-11e8-9667-370f3a097b68.gif)
+
+
 If you experience any issues or have any suggestions, please [add a new issue](https://github.com/jchafetz/docklessapi/issues).
