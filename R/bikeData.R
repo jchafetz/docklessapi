@@ -8,6 +8,8 @@
 #' @importFrom dplyr %>%
 #'
 #' @examples
+
+
 bikeData <- function(url, layer, auth){
 
     #Pull the JSON
