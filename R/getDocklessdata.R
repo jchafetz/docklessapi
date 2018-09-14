@@ -1,4 +1,13 @@
-#Putting together the data
+#' Pull, clean, and save dockless API data
+#'
+#' @param output_filepath folder directory where you want the file to save to
+#'
+#' @export
+#' @importFrom dplyr %>%
+#'
+#' @examples
+
+
 getDocklessdata <- function(output_filepath){
 
     #Set the urls
@@ -26,5 +35,5 @@ getDocklessdata <- function(output_filepath){
     #export
     write.csv(df, file.path(output_filepath, paste0(time, "data_set.csv")))
 
-    return(currentData)
+    return(df)
 }
