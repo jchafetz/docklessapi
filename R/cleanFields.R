@@ -5,7 +5,6 @@
 #' @export
 #' @importFrom dplyr %>%
 #'
-#' @examples
 
 
 cleanFields <- function(df){

@@ -8,7 +8,6 @@
 #' @export
 #' @importFrom dplyr %>%
 #'
-#' @examples
 
 
 bikeData <- function(company, url, layer = "data", auth = NA){

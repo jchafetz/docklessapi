@@ -4,9 +4,6 @@
 #'
 #' @export
 #' @importFrom dplyr %>%
-#'
-#' @examples
-
 
 getDocklessdata <- function(output_filepath = NULL){
 
