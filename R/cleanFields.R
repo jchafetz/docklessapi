@@ -37,7 +37,7 @@ cleanFields <- function(df){
 
     df <-
         df %>%
-        dplyr::rename(bikeID = name_ID)
+        dplyr::rename(bikeID = !!name_ID)
 
     #Longtitude & Latitude
     name_long <-
@@ -52,8 +52,8 @@ cleanFields <- function(df){
 
     df <-
         df %>%
-        dplyr::rename(lat = name_lat,
-                      long = name_long) %>%
+        dplyr::rename(lat = !!name_lat,
+                      long = !!name_long) %>%
         dplyr::mutate(lat = as.numeric(lat),
                       long = as.numeric(long)) %>%
         dplyr::filter(lat > 37 & lat < 39,
