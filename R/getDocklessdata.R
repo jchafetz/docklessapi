@@ -4,9 +4,6 @@
 #'
 #' @export
 #' @importFrom dplyr %>%
-#'
-#' @examples
-
 
 getDocklessdata <- function(output_filepath = NULL){
 
@@ -24,7 +21,7 @@ getDocklessdata <- function(output_filepath = NULL){
     #Pull the data
     df <- purrr::map2_dfr(.x = dockless_urls$company,
                           .y = dockless_urls$url,
-                          .f = ~ bikeData(.x, .y) %>% cleanFields())
+                          .f = ~ executeAPI(.x, .y))
 
     #Timestamp new data and add it to data frame
     df$time <- lubridate::now()
