@@ -2,5 +2,6 @@
 
 export(bikeData)
 export(cleanFields)
+export(executeAPI)
 export(getDocklessdata)
 importFrom(dplyr,"%>%")
