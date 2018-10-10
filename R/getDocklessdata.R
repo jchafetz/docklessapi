@@ -4,9 +4,6 @@
 #'
 #' @export
 #' @importFrom dplyr %>%
-#'
-#' @examples
-
 
 getDocklessdata <- function(output_filepath = NULL){
 
@@ -16,7 +13,7 @@ getDocklessdata <- function(output_filepath = NULL){
             ~company,                                                                         ~url,  ~layer,                            ~auth,
               "skip", "https://us-central1-waybots-production.cloudfunctions.net/dcFreeBikeStatus", "bikes",                               NA,
               "spin",                           "https://web.spin.pm/api/gbfs/v1/free_bike_status",  "data",                               NA,
-              "bird",                                      "https://dzn9sy8hnh1q4.cloudfront.net/",  "data",                               NA,
+              "bird",                                                    "https://gbfs.bird.co/dc",  "data",                               NA,
               "jump",                 "https://dc.jumpmobility.com/opendata/free_bike_status.json",  "data",                               NA,
               "lime",    "https://lime.bike/api/partners/v1/bikes?region=Washington%20DC%20Proper",  "data", "Bearer limebike-PMc3qGEtAAXqJa"
         )
@@ -24,7 +21,7 @@ getDocklessdata <- function(output_filepath = NULL){
     #Pull the data
     df <- purrr::map2_dfr(.x = dockless_urls$company,
                           .y = dockless_urls$url,
-                          .f = ~ bikeData(.x, .y) %>% cleanFields())
+                          .f = ~ executeAPI(.x, .y))
 
     #Timestamp new data and add it to data frame
     df$time <- lubridate::now()
