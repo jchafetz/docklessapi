@@ -18,14 +18,9 @@ cleanFields <- function(df){
     } else{
         df <-
             df %>%
-            dplyr::mutate(
-                vehicletype = dplyr::case_when(
-                    company == "jump" ~ "bike",
-                    company == "spin" ~ "bike",
-                    company == "bird" ~ "scooter",
-                    company == "skip" ~ "scooter"
-                ))
-
+            dplyr::mutate(vehicletype = dplyr::case_when(
+                company %in% c("jump") ~ "bike",
+                TRUE                   ~ "scooter"))
     }
 
     #BikeID

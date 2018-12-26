@@ -2,3 +2,10 @@
 .Rhistory
 .RData
 .Ruserdata
+data/*
+images/*
+*.bat
+MovedBikes.R
+Visualization.R
+schema.ini
+BikeAPI.R

@@ -10,12 +10,13 @@ getDocklessdata <- function(output_filepath = NULL){
     #Set the urls
     dockless_urls <-
         tibble::tribble(
-            ~company,                                                                         ~url,  ~layer,                            ~auth,
-              "skip", "https://us-central1-waybots-production.cloudfunctions.net/dcFreeBikeStatus", "bikes",                               NA,
-              "spin",                           "https://web.spin.pm/api/gbfs/v1/free_bike_status",  "data",                               NA,
-              "bird",                                                    "https://gbfs.bird.co/dc",  "data",                               NA,
-              "jump",                 "https://dc.jumpmobility.com/opendata/free_bike_status.json",  "data",                               NA,
-              "lime",    "https://lime.bike/api/partners/v1/bikes?region=Washington%20DC%20Proper",  "data", "Bearer limebike-PMc3qGEtAAXqJa"
+            ~company,                                                                                  ~url,  ~layer,                            ~auth,
+            "skip",          "https://us-central1-waybots-production.cloudfunctions.net/dcFreeBikeStatus", "bikes",                              NA,
+            "spin",                      "https://web.spin.pm/api/gbfs/v1/washington_dc/free_bike_status", "data",                               NA,
+            "bird",                                                             "https://gbfs.bird.co/dc", "data",                               NA,
+            "jump",                          "https://dc.jumpmobility.com/opendata/free_bike_status.json", "data",                               NA,
+            "lime",             "https://lime.bike/api/partners/v1/bikes?region=Washington%20DC%20Proper", "data", "Bearer limebike-PMc3qGEtAAXqJa",
+            "lyft", "https://s3.amazonaws.com/lyft-lastmile-production-iad/lbs/dca/free_bike_status.json", "data",                               NA
         )
 
     #Pull the data
